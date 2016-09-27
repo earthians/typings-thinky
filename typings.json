@@ -1,0 +1,10 @@
+{
+  "name": "thinky",
+  "main": "thinky.d.ts",
+  "ambientDependencies": {
+    "bluebird": "registry:dt/bluebird#2.0.0+20160319051630"
+  },
+  "globalDependencies": {
+    "bluebird": "registry:dt/bluebird#3.0.0+20160907110115"
+  }
+}
