@@ -12,7 +12,6 @@
     ],
     "filesGlob": [
         "thinky.d.ts",
-        "!node_modules/**",
-        "!typings/**"
+        "typings/index.d.ts"
     ]
 }
