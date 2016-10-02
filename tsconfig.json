@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "target": "es5",
+        "module": "commonjs",
+        "sourceMap": true
+    },
+    "exclude": [
+        "node_modules",
+        "jspm_packages"
+    ],
+    "filesGlob": [
+        "thinky.d.ts",
+        "!node_modules/**",
+        "!typings/**"
+    ]
+}

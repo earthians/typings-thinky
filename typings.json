@@ -1,10 +1,10 @@
 {
   "name": "thinky",
-  "main": "thinky.d.ts",
+  "main": "index.d.ts",
   "homepage": "https://thinky.io/",
   "version": "1.0.0",
-  "ambientDevDependencies": {
-    "node": "registry:dt/node#4.0.0+20160330064709",
-    "bluebird": "registry:dt/bluebird#3.0.0+20160928162057"
+  "globalDependencies": {
+    "bluebird": "registry:dt/bluebird#3.0.0+20160928162057",
+    "node": "registry:dt/node#6.0.0+20160928143418"
   }
 }
