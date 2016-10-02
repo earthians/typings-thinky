@@ -3,10 +3,8 @@
   "main": "thinky.d.ts",
   "homepage": "https://thinky.io/",
   "version": "1.0.0",
-  "ambientDependencies": {
-     "bluebird": "registry:dt/bluebird#3.0.0+20160928162057"
-   },
-  "globalDependencies": {
+  "ambientDevDependencies": {
+    "node": "registry:dt/node#4.0.0+20160330064709",
     "bluebird": "registry:dt/bluebird#3.0.0+20160928162057"
   }
 }
