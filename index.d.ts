@@ -140,7 +140,7 @@ declare module "thinky" {
         insert(obj: any[], options?: InsertOptions): Operation<WriteResult>;
         insert(obj: any, options?: InsertOptions): Operation<WriteResult>;
 
-        get(key: string): ItemSequence<UDocument>; // primary key
+        get(key: any): ItemSequence<UDocument>; // primary key
         getAll(key: string, index?: Index): Sequence<UDocument>; // without index defaults to primary key
         getAll(...keys: string[]): Sequence<UDocument>;
     }
