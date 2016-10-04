@@ -11,7 +11,7 @@ The type definition for [`thinky`](https://github.com/neumino/thinky)
 
 ## LICENSE
 
-BSD-2-Clause-FreeBSD
+MIT License
 
 ## Contributing
 
