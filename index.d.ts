@@ -325,6 +325,7 @@ declare module "thinky" {
 
     interface Operation<T> {
         run(): Bluebird<T>;
+        execute(): Bluebird<T>;
     }
 
     interface Aggregator { }
