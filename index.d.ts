@@ -374,10 +374,6 @@ declare module "thinky" {
         schema(value: Object): TypeObject;
     }
 
-    class TypeArray extends Type<TypeArray> {
-        schema(value: TypeWrapper): TypeArray;
-    }
-
     class TypePoint extends Type<TypePoint> {
 
     }
@@ -389,6 +385,12 @@ declare module "thinky" {
     class TypeAny extends Type<TypeAny> {
 
     }
+
+    class TypeArray extends Type<TypeArray> {
+        schema(value: TypeString|TypeNumber|TypeBoolean|TypeDate|TypePoint|TypeAny): TypeArray;
+    }
+
+    
 
 
     class TypeDate extends Type<TypeDate> {
