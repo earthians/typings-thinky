@@ -364,7 +364,6 @@ declare module "thinky" {
     }
 
     class TypeBoolean extends Type<TypeBoolean> {
-
     }
 
     class TypeBuffer extends Type<TypeBuffer> {
@@ -372,11 +371,11 @@ declare module "thinky" {
     }
 
     class TypeObject extends Type<TypeObject> {
-
+        schema(value: Object): TypeObject;
     }
 
     class TypeArray extends Type<TypeArray> {
-
+        schema(value: TypeWrapper): TypeArray;
     }
 
     class TypePoint extends Type<TypePoint> {
