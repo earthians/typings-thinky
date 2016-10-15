@@ -367,6 +367,31 @@ declare module "thinky" {
 
     }
 
+    class TypeBuffer extends Type<TypeBuffer> {
+
+    }
+
+    class TypeObject extends Type<TypeObject> {
+
+    }
+
+    class TypeArray extends Type<TypeArray> {
+
+    }
+
+    class TypePoint extends Type<TypePoint> {
+
+    }
+
+    class TypeVirtual extends Type<TypeVirtual> {
+
+    }
+
+    class TypeAny extends Type<TypeAny> {
+
+    }
+
+
     class TypeDate extends Type<TypeDate> {
         min(value: Date): TypeDate;
         max(value: Date): TypeDate;
@@ -377,6 +402,11 @@ declare module "thinky" {
         number(): TypeNumber;
         boolean(): TypeBoolean;
         date(): TypeDate;
+        buffer(): TypeBuffer;
+        array(): TypeArray;
+        point(): TypePoint;
+        virtual(): TypeVirtual;
+        any(): TypeAny;
     }
 
     class Thinky extends connect.Thinky {
