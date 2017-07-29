@@ -4,7 +4,6 @@
   "homepage": "https://thinky.io/",
   "version": "1.0.3",
   "globalDependencies": {
-    "bluebird": "registry:dt/bluebird#3.0.0+20160928162057",
     "node": "registry:dt/node#6.0.0+20161014191813"
   }
 }

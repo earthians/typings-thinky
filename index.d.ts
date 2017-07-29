@@ -1,5 +1,4 @@
 declare module "thinky" {
-    import * as Bluebird from 'bluebird'
     import * as events from 'events'
 
     function connect(connectionOptions?: ConnectionOptions): Thinky;
@@ -18,27 +17,27 @@ declare module "thinky" {
             hasAndBelongsToMany<SecondUModel extends Model<any, any, any>>(OtherModel: SecondUModel, fieldName: string, leftKey: string, rightKey: string, options: RelationshipOptions);
             pre(event: string, hook: HookFunction);
             post(event: string, hook: HookFunction);
-            save(object: UAttributes, options?: SaveOptions): Bluebird<UDocument>;
+            save(object: UAttributes, options?: SaveOptions): Promise<UDocument>;
         }
 
         export interface Document<UDocument extends Document<any, any, any>, UModel extends Model<any, any, any>, UAttributes> {
             getModel(): UModel;
             merge<OtherUDocument extends Document<any, any, any>>(doc: OtherUDocument): void;
             validate(): Error;
-            validate(): Bluebird<any>;
-            validateAll(options?: ValidateAllOptions, modelToValidate?: Model<any, any, any>): Bluebird<any>;
-            save(callback: (doc: UDocument) => void): Bluebird<UDocument>;
-            saveAll(modelToSave: Model<any, any, any>, callback: (doc: UDocument) => void): Bluebird<UDocument>;
-            saveAll(modelToSave: { (fieldName: string): boolean }, callback: (doc: UDocument) => void): Bluebird<UDocument>;
+            validate(): Promise<any>;
+            validateAll(options?: ValidateAllOptions, modelToValidate?: Model<any, any, any>): Promise<any>;
+            save(callback: (doc: UDocument) => void): Promise<UDocument>;
+            saveAll(modelToSave: Model<any, any, any>, callback: (doc: UDocument) => void): Promise<UDocument>;
+            saveAll(modelToSave: { (fieldName: string): boolean }, callback: (doc: UDocument) => void): Promise<UDocument>;
             isSaved(): boolean;
             getOldValue(): UDocument;
             setSaved(): void;
-            delete(callback: (doc: UDocument) => void): Bluebird<UDocument>;
-            deleteAll(modelToDelete: Model<any, any, any>, callback: (doc: UDocument) => void): Bluebird<UDocument>;
-            deleteAll(modelToDelete: { (fieldName: string): boolean }, callback: (doc: UDocument) => void): Bluebird<UDocument>;
-            addRelation<OtherUDocument extends Document<any, any, any>, ResultDocument extends Document<any, any, any>>(field: string, joinedDocument: OtherUDocument): Bluebird<ResultDocument>;//TODO: improve
-            removeRelation<OtherUDocument extends Document<any, any, any>>(field: string, joinedDocument?: OtherUDocument): Bluebird<UDocument>;
-            purge(callback: (doc: UDocument) => void) : Bluebird<UDocument>;
+            delete(callback: (doc: UDocument) => void): Promise<UDocument>;
+            deleteAll(modelToDelete: Model<any, any, any>, callback: (doc: UDocument) => void): Promise<UDocument>;
+            deleteAll(modelToDelete: { (fieldName: string): boolean }, callback: (doc: UDocument) => void): Promise<UDocument>;
+            addRelation<OtherUDocument extends Document<any, any, any>, ResultDocument extends Document<any, any, any>>(field: string, joinedDocument: OtherUDocument): Promise<ResultDocument>;//TODO: improve
+            removeRelation<OtherUDocument extends Document<any, any, any>>(field: string, joinedDocument?: OtherUDocument): Promise<UDocument>;
+            purge(callback: (doc: UDocument) => void) : Promise<UDocument>;
             //getFeed() : Feed; TODO: create
             //closeFeed() : Feed; TODO: create
             //TODO: implement getJoin
@@ -324,8 +323,8 @@ declare module "thinky" {
     }
 
     interface Operation<T> {
-        run(): Bluebird<T>;
-        execute(): Bluebird<T>;
+        run(): Promise<T>;
+        execute(): Promise<T>;
     }
 
     interface Aggregator { }
