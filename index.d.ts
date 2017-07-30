@@ -432,7 +432,7 @@ declare module "thinky" {
     }
 
     interface ModelSchema {
-        [attrName: string]: Type<any>;
+        [attrName: string]: Type<any> | ModelSchema;
     }
 
     interface IndexOptions {
