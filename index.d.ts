@@ -48,6 +48,7 @@ declare module "thinky" {
             type: TypeWrapper;
             Errors: Errors;
             Query: Query;
+            dbReady(): Promise<any>;
             createModel<UDocument extends connect.Document<any, any, any>, UModel extends connect.Model<any, any, any>, UAttributes extends Object>(tableName: string, schema: ModelSchema, options?: ModelOptions): UModel;
         }
 
@@ -59,7 +60,6 @@ declare module "thinky" {
         connect(host: ConnectionOptions, cb: (err: Error, conn: Connection) => void);
         dbCreate(name: string): Operation<CreateResult>;
 
-        dbReady(): Promise<any>;
         dbDrop(name: string): Operation<DropResult>;
         dbList(): Operation<string[]>;
 
