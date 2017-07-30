@@ -6,7 +6,7 @@ declare module "thinky" {
 
     module connect {
         export interface Model<UDocument extends Document<any, any, any>, UModel extends Model<any, any, any>, UAttributes> extends Table<UDocument>, events.EventEmitter {
-            new (attributes?: UAttributes): UDocument;
+            new(attributes?: UAttributes): UDocument;
             getTableName(): string;
             define(key: string, fn: Function): void;
             defineStatic(key: string, fn: Function): void;
@@ -37,7 +37,7 @@ declare module "thinky" {
             deleteAll(modelToDelete: { (fieldName: string): boolean }, callback: (doc: UDocument) => void): Promise<UDocument>;
             addRelation<OtherUDocument extends Document<any, any, any>, ResultDocument extends Document<any, any, any>>(field: string, joinedDocument: OtherUDocument): Promise<ResultDocument>;//TODO: improve
             removeRelation<OtherUDocument extends Document<any, any, any>>(field: string, joinedDocument?: OtherUDocument): Promise<UDocument>;
-            purge(callback: (doc: UDocument) => void) : Promise<UDocument>;
+            purge(callback: (doc: UDocument) => void): Promise<UDocument>;
             //getFeed() : Feed; TODO: create
             //closeFeed() : Feed; TODO: create
             //TODO: implement getJoin
@@ -51,7 +51,7 @@ declare module "thinky" {
             createModel<UDocument extends connect.Document<any, any, any>, UModel extends connect.Model<any, any, any>, UAttributes extends Object>(tableName: string, schema: ModelSchema, options?: ModelOptions): UModel;
         }
 
-        
+
     }
 
     class R {
@@ -59,6 +59,7 @@ declare module "thinky" {
         connect(host: ConnectionOptions, cb: (err: Error, conn: Connection) => void);
         dbCreate(name: string): Operation<CreateResult>;
 
+        dbReady(): Promise<any>;
         dbDrop(name: string): Operation<DropResult>;
         dbList(): Operation<string[]>;
 
@@ -157,7 +158,7 @@ declare module "thinky" {
         zip(): ItemSequence<UDocument>;
 
         //thinky join
-        getJoin<JoinedUDocument extends connect.Document<any, any, any>>(modelToGet : connect.Model<any, any, any>) : ItemSequence<JoinedUDocument>;
+        getJoin<JoinedUDocument extends connect.Document<any, any, any>>(modelToGet: connect.Model<any, any, any>): ItemSequence<JoinedUDocument>;
 
         // Transform
         map(transform: ExpressionFunction<any>): ItemSequence<UDocument>;
@@ -207,7 +208,7 @@ declare module "thinky" {
         zip(): Sequence<UDocument>;
 
         //thinky join
-        getJoin<JoinedUDocument extends connect.Document<any, any, any>>(modelToGet : connect.Model<any, any, any>) : Sequence<JoinedUDocument>;
+        getJoin<JoinedUDocument extends connect.Document<any, any, any>>(modelToGet: connect.Model<any, any, any>): Sequence<JoinedUDocument>;
 
         // Transform
         map(transform: ExpressionFunction<any>): Sequence<UDocument>;
@@ -386,10 +387,10 @@ declare module "thinky" {
     }
 
     class TypeArray extends Type<TypeArray> {
-        schema(value: TypeString|TypeNumber|TypeBoolean|TypeDate|TypePoint|TypeAny): TypeArray;
+        schema(value: TypeString | TypeNumber | TypeBoolean | TypeDate | TypePoint | TypeAny): TypeArray;
     }
 
-    
+
 
 
     class TypeDate extends Type<TypeDate> {
